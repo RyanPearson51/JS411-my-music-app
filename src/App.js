@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import {useState} from 'react';
+import Card from './components/Card';
 import './App.css';
 
 function App() {
+  const [isOnline, setIsOnline] = useState(true)
+  const [isVolumeHigh, setIsVolumeHigh] = useState(false)
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Card title='Online mode' body='Is this application connected to the internet?' state={isOnline} setState={setIsOnline} />
+      <Card title='Master Volume' body='Overrides all other sound settings in this application' isOnline={isOnline} setIsOnline={setIsOnline}/>
+      <Card title='Sound Quality' body='Maunally control the music quality in event of poor connection' isOnline={isOnline} setIsOnline={setIsOnline}/>
+      {!isOnline && <ol>Your application is offline. You won't be able to share or stream music to other devices.</ol>}
     </div>
   );
 }

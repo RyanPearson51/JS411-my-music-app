@@ -1,17 +1,25 @@
 import {useState} from 'react';
-import Card from './components/Card';
+import OnlineCard from './components/OnlineCard';
+import VolumeCard from './components/VolumeCard';
+import QualityCard from './components/QualityCard'
 import './App.css';
+import Switch from '@mui/material/Switch';
+import Grid from '@mui/material/Grid';
+
 
 function App() {
   const [isOnline, setIsOnline] = useState(true)
   const [isVolumeHigh, setIsVolumeHigh] = useState(false)
+  const [isQualityLow, setIsQualityLow] = useState(false)
   
   return (
     <div className="App">
-      
-      <Card title='Online mode' body='Is this application connected to the internet?' state={isOnline} setState={setIsOnline} />
-      <Card title='Master Volume' body='Overrides all other sound settings in this application' isOnline={isOnline} setIsOnline={setIsOnline}/>
-      <Card title='Sound Quality' body='Maunally control the music quality in event of poor connection' isOnline={isOnline} setIsOnline={setIsOnline}/>
+      <Grid container spacing={0} columns={16}>
+      <OnlineCard isOnline={isOnline} setIsOnline={setIsOnline}/>
+      <VolumeCard isVolumeHigh={isVolumeHigh} setIsVolumeHigh={setIsVolumeHigh}/>
+      <QualityCard isQualityLow={isQualityLow} setIsQualityLow={setIsQualityLow}/>
+      </Grid>
+      <h1>System Notifications</h1>
       {!isOnline && <ol>Your application is offline. You won't be able to share or stream music to other devices.</ol>}
     </div>
   );

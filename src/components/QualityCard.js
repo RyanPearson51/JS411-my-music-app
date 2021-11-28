@@ -5,10 +5,17 @@ import  Typography  from "@mui/material/Typography";
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 
 export default function QualityCard({ isQualityLow, setIsQualityLow}) {
   
+  const handleChange = (event) => {
+    event.preventDefault()
+    console.log("SoundQualityCard handleChange() event.target.value: ", event.target.value)
+    setIsQualityLow(event.target.value);
+  };
   
 
   return(
@@ -20,24 +27,26 @@ export default function QualityCard({ isQualityLow, setIsQualityLow}) {
         <Typography variant='body2'>
         Maunally control the music quality in event of poor connection
         </Typography>
+        </CardContent>
         
-        <FormControl fullWidth>
-        <InputLabel variant="standard" htmlFor="uncontrolled-native">
-          Quality
-        </InputLabel>
-        <NativeSelect
-          defaultValue={2}
-          inputProps={{
-            name: 'age',
-            id: 'uncontrolled-native',
-          }}
-        >
-          <option value={1}>Low</option>
-          <option value={2}>Medium</option>
-          <option value={3}>High</option>
-        </NativeSelect>
-      </FormControl>
-      </CardContent>
+        <CardActions className="soundQualityCardActions" >
+        <FormControl  className="soundQualityFormControl" variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            { <InputLabel id="demo-simple-select-standard-label">Quality</InputLabel>}
+            <Select
+            labelId="demo-simple-select-standard-label"
+            id="demo-simple-select-standard"
+            value={isQualityLow}
+            onChange={handleChange}
+            label="quality"
+            >
+            <MenuItem value={"low"}>Low</MenuItem>
+            <MenuItem value={"normal"}>Normal</MenuItem>
+            <MenuItem value={"high"}>High</MenuItem>
+            </Select>
+        </FormControl>
+            
+      </CardActions>
+     
     </Card>
   )
 }

@@ -1,0 +1,20 @@
+.welcome{
+    color: gray;
+    font-size: 33px;
+    padding-left: 17%;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem auto;
+}
+
+.dashboard{
+    margin: 10%;
+}
+
+.notifications{
+    padding-left: 17%;
+}

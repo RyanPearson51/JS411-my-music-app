@@ -33,9 +33,11 @@ export default function CardsMain() {
       
       </Container>
       <h2 className='notifications'>System Notifications:</h2>
-      {!isOnline && <ol>Your application is offline. You won't be able to share or stream music to other devices.</ol>}
-      {isVolumeHigh>=80 && <ol>Listening to music at a high volume could cause long-term hearing loss.</ol>}
-      {isQualityLow==="low" && <ol>Music quality is degraded. Increase quality if your connection allows it.</ol>}
+      <ol>
+      {!isOnline && <li>Your application is offline. You won't be able to share or stream music to other devices.</li>}
+      {isVolumeHigh>=80 && <li>Listening to music at a high volume could cause long-term hearing loss.</li>}
+      {isQualityLow==="low" && <li>Music quality is degraded. Increase quality if your connection allows it.</li>}
+      </ol>
     </div>
   );
 }

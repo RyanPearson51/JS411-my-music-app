@@ -13,7 +13,11 @@ function valuetext(value) {
 
 
 
-export default function VolumeCard() {
+export default function VolumeCard({ isVolumeHigh, setIsVolumeHigh}) {
+  const handleChange = (event) => {
+    event.preventDefault()
+    setIsVolumeHigh(event.target.value)
+  }
   return (
     <Card sx={{maxWidth: 275}}>
       <CardContent>
@@ -27,12 +31,14 @@ export default function VolumeCard() {
         <Slider
         aria-label="Temperature"
         defaultValue={30}
+        value={isVolumeHigh}
         getAriaValueText={valuetext}
         valueLabelDisplay="auto"
         step={10}
         marks
         min={0}
         max={100}
+        onChange={handleChange}
       />
         
         </CardActions>

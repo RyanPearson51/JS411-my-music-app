@@ -40,6 +40,3 @@ export default function CardsMain() {
   );
 }
 
-/*{(isVolumeHigh>=80 ? <li>Listening to music at a high volume could cause long-term hearing loss.</li> : '')}
-  {(isQualityLow==="low" ? <li>Music quality is degraded. Increase quality if your connection allows it.</li> : '')}
-*/

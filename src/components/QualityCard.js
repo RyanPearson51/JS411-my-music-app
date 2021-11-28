@@ -4,7 +4,6 @@ import CardContent from '@mui/material/CardContent';
 import  Typography  from "@mui/material/Typography";
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-import NativeSelect from '@mui/material/NativeSelect';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 
@@ -13,7 +12,6 @@ export default function QualityCard({ isQualityLow, setIsQualityLow}) {
   
   const handleChange = (event) => {
     event.preventDefault()
-    console.log("SoundQualityCard handleChange() event.target.value: ", event.target.value)
     setIsQualityLow(event.target.value);
   };
   
